@@ -7,7 +7,7 @@ describe('Tarefas', ()=>{
 
         /// AULA 12: APRENDENDO COMO MANIPULAR "INPUT" DO TIPO "TEXT"
         cy.get('input[placeholder="Add a new Task"]') 
-            .type('Ler um livro de Node.js')
+            .type('Ler um livro de node.js')
 
             cy.contains('button', "Create").click()
     })
