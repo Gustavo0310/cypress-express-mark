@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "test": "echo \"Tests running...\"",
-    "build": "echo \"Build running...\""
+    "test": "cypress run",
+    "build": "your-build-command"
   },
   "name": "cypress-express-mark",
   "version": "1.0.0",
