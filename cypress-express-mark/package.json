@@ -1,4 +1,10 @@
 {
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:open:mobile": "cypress open --config viewportWidth=1920 viewportHeight=1080",
+    "test": "cypress run",
+    "test:mobile": "cypress run --config viewportWidth=1920 viewportHeight=1080"
+  },
   "name": "cypress-express-mark",
   "version": "1.0.0",
   "description": "Projeto de testes de ponta a ponta no Mark L",
