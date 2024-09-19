@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "jest",
+    "test": "yarn cypress run",
     "build": "your-build-command"
   },
   "name": "cypress-express-mark",
