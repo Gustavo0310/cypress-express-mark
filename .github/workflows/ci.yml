@@ -31,7 +31,7 @@ jobs:
               run: yarn cypress verify
 
             - name: Run Cypress tests
-              run: cd .c/qax/cypress-express-mark && yarn cypress run
+              run: cd ./qax/cypress-express-mark && yarn cypress run
             
 
             - name: Build the project
