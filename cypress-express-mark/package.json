@@ -1,7 +1,6 @@
 {
   "scripts": {
-    "test": "cypress run",
-    "build": "your-build-command"
+    "test": "cypress run"
   },
   "name": "cypress-express-mark",
   "version": "1.0.0",
