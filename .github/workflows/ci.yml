@@ -27,24 +27,24 @@ jobs:
 
       # Adicione temporariamente este passo para verificar a estrutura de diretórios
       - name: List all files to verify structure
-        run: ls -la qax/cypress-express-mark
+        run: ls -la ./qax
 
       - name: Install dependencies
-        working-directory: qax/cypress-express-mark
+        working-directory: ./qax
         run: yarn install
 
       - name: Install Cypress
-        working-directory: qax/cypress-express-mark
+        working-directory: ./qax
         run: yarn add cypress@12.2.0
 
       - name: Verify Cypress installation
-        working-directory: qax/cypress-express-mark
+        working-directory: ./qax
         run: yarn cypress verify
 
       - name: List files in directory
-        working-directory: qax/cypress-express-mark
+        working-directory: ./qax
         run: ls -la
 
       - name: Run Cypress tests
-        working-directory: qax/cypress-express-mark
+        working-directory: ./qax
         run: yarn cypress run --headless
