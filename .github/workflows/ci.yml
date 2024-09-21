@@ -1,44 +1,50 @@
 name: Integration Tests
 
 on:
-    push:
-        branches:
-          - main
-    pull_request:
-        branches:
-          - main
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-        defaults:
-          run:
-            working-directory: qax/cypress-express-mark
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3  
 
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v3  
+      # Lista os arquivos na raiz do repositório após o checkout
+      - name: List files after checkout
+        run: ls -la
 
-            - name: List files
-              run: ls 
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.12.1
 
-            - name: Set up Node.js
-              uses: actions/setup-node@v3
-              with:
-                node-version: 18.12.1
+      # Adicione temporariamente este passo para verificar a estrutura de diretórios
+      - name: List all files to verify structure
+        run: ls -la qax/cypress-express-mark
 
-            - name: Install dependencies
-              run: yarn install
+      - name: Install dependencies
+        working-directory: qax/cypress-express-mark
+        run: yarn install
 
-            - name: Install Cypress
-              run: yarn add cypress@12.2.0
+      - name: Install Cypress
+        working-directory: qax/cypress-express-mark
+        run: yarn add cypress@12.2.0
 
-            - name: Verify Cypress installation
-              run: yarn cypress verify
+      - name: Verify Cypress installation
+        working-directory: qax/cypress-express-mark
+        run: yarn cypress verify
 
-            - name: List files
-              run: ls -la
+      - name: List files in directory
+        working-directory: qax/cypress-express-mark
+        run: ls -la
 
-            - name: Run Cypress tests
-              run: yarn cypress run --headless
+      - name: Run Cypress tests
+        working-directory: qax/cypress-express-mark
+        run: yarn cypress run --headless
