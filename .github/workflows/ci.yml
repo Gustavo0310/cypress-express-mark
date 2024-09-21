@@ -1,32 +1,34 @@
-name: Integration Test
+name: Integration Tests
 
-on: 
+on:
     push:
         branches:
-          -main
+          - main
     pull_request:
         branches:
           - main
+
 jobs:
-  build:
-      runs-on: ubuntu-latest
-      steps:
-          - name: Checkout code
-            uses: actions/checkout@v3
+    build:
+        runs-on: ubuntu-latest
 
-          - name: Set up Node.js
-            uses: actions/setup-node@v2
-            with:
-              node-version: 18.12.1
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3  
 
-          - name: Install dependencies
-            run: yarn install
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18.12.1
 
-          - name: Install Cypress
-            run: yarn add cypress@12.2.0
+            - name: Install dependencies
+              run: yarn install
 
-          - name: Verify Cypress installation
-            run: yarn cypress verify
-          
-          - name: Cypress tests
-            run: yarn cypress run
+            - name: Install Cypress
+              run: yarn add cypress@12.2.0
+
+            - name: Verify Cypress installation
+              run: yarn cypress verify
+
+            - name: Run Cypress tests
+              run: yarn cypress run
