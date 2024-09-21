@@ -28,5 +28,5 @@ jobs:
           - name: Verify Cypress installation
             run: yarn cypress verify
           
-          - name: Run Cypress tests
+          - name: Cypress tests
             run: yarn cypress run
